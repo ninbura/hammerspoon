@@ -1,0 +1,2 @@
+require("capslock")
+require("numpad")
