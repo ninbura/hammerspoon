@@ -1,4 +1,4 @@
-local function moveMouseToFocusedWindowCenter() -- test
+local function moveMouseToFocusedWindowCenter()
   local win = hs.window.focusedWindow()
   if win then
     local f = win:frame()
