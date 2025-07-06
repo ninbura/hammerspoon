@@ -35,10 +35,10 @@ local function fill()
   triggerMenuItem({"Window", "Fill"})
 end
 local function moveToDisplay1()
-  triggerMenuItem({"Window", "Move To", "EDIIG0216 (1)"})
+  triggerMenuItem({"Window", "Move To", "DELL S2725QS (2)"})
 end
 local function moveToDisplay2()
-  triggerMenuItem({"Window", "Move To", "EDIIG0216 (3)"})
+  triggerMenuItem({"Window", "Move To", "EDIIG0216 (2)"})
 end
 
 local function bindHotkeys()

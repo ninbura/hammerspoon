@@ -25,15 +25,15 @@ local function bindHotkeys()
   hs.hotkey.bind(mods, "`", moveMouseToFocusedWindowCenter)
 
   hs.hotkey.bind(mods, "\\", function()
-    moveMouseToDisplayCenter("EDIIG0216 (1)")
+    moveMouseToDisplayCenter("DELL S2725QS (2)")
   end)
 
   hs.hotkey.bind(mods, "]", function()
-    moveMouseToDisplayCenter("KG282K (1)")
+    moveMouseToDisplayCenter("DELL S2725QS (1)")
   end)
 
   hs.hotkey.bind(mods, "[", function()
-    moveMouseToDisplayCenter("EDIIG0216 (3)")
+    moveMouseToDisplayCenter("EDIIG0216 (2)")
   end)
 end
 
