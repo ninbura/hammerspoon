@@ -1,48 +1,69 @@
-local function triggerMenuItem(menuPath)
-  local app = hs.application.frontmostApplication()
-  if app then
-    app:selectMenuItem(menuPath)
+local function setWindowUnit(unit)
+  local win = hs.window.focusedWindow()
+  if not win then
+    hs.alert.show("No focused window found")
+    return
+  end
+
+  local screen = win:screen()
+  local screenFrame = screen:frame()
+
+  local newFrame = {
+    x = screenFrame.x + (screenFrame.w * (unit.x or 0)),
+    y = screenFrame.y + (screenFrame.h * (unit.y or 0)),
+    w = screenFrame.w * (unit.w or 1),
+    h = screenFrame.h * (unit.h or 1),
+  }
+
+  win:setFrame(newFrame)
+end
+
+local function moveWindowToMouseScreen()
+  local win = hs.window.focusedWindow()
+  if not win then
+    hs.alert.show("No focused window found")
+    return
+  end
+
+  local mouseScreen = hs.mouse.getCurrentScreen()
+  if mouseScreen and win:screen():id() ~= mouseScreen:id() then
+    win:moveToScreen(mouseScreen)
   else
-    hs.alert.show("No active application found")
+    hs.alert.show("Could not find a different screen under the mouse.")
   end
 end
 
 local function tileRight()
-  triggerMenuItem({"Window", "Move & Resize", "Right"})
+  setWindowUnit({ x = 0.5, w = 0.5 })
 end
 local function tileLeft()
-  triggerMenuItem({"Window", "Move & Resize", "Left"})
+  setWindowUnit({ w = 0.5 })
 end
 local function tileTop()
-  triggerMenuItem({"Window", "Move & Resize", "Top"})
+  setWindowUnit({ h = 0.5 })
 end
 local function tileBottom()
-  triggerMenuItem({"Window", "Move & Resize", "Bottom"})
+  setWindowUnit({ y = 0.5, h = 0.5 })
 end
 local function tileTopLeft()
-  triggerMenuItem({"Window", "Move & Resize", "Top Left"})
+  setWindowUnit({ w = 0.5, h = 0.5 })
 end
 local function tileTopRight()
-  triggerMenuItem({"Window", "Move & Resize", "Top Right"})
+  setWindowUnit({ x = 0.5, w = 0.5, h = 0.5 })
 end
 local function tileBottomLeft()
-  triggerMenuItem({"Window", "Move & Resize", "Bottom Left"})
+  setWindowUnit({ y = 0.5, w = 0.5, h = 0.5 })
 end
 local function tileBottomRight()
-  triggerMenuItem({"Window", "Move & Resize", "Bottom Right"})
+  setWindowUnit({ x = 0.5, y = 0.5, w = 0.5, h = 0.5 })
 end
 local function fill()
-  triggerMenuItem({"Window", "Fill"})
-end
-local function moveToDisplay1()
-  triggerMenuItem({"Window", "Move To", "DELL S2725QS (2)"})
-end
-local function moveToDisplay2()
-  triggerMenuItem({"Window", "Move To", "EDIIG0216 (2)"})
+  setWindowUnit({})
 end
 
+-- Your hotkey bindings remain unchanged
 local function bindHotkeys()
-  local mods = {"ctrl", "shift", "cmd"}
+  local mods = { "ctrl", "shift", "cmd" }
 
   hs.hotkey.bind(mods, "right", tileRight)
   hs.hotkey.bind(mods, "left", tileLeft)
@@ -54,8 +75,7 @@ local function bindHotkeys()
   hs.hotkey.bind(mods, "4", tileBottomRight)
   hs.hotkey.bind(mods, "space", fill)
 
-  hs.hotkey.bind(mods, "0", moveToDisplay1)
-  hs.hotkey.bind(mods, "9", moveToDisplay2)
+  hs.hotkey.bind(mods, "pad0", moveWindowToMouseScreen)
 end
 
 bindHotkeys()
