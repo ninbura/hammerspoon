@@ -36,29 +36,41 @@ end
 local function tileRight()
   setWindowUnit({ x = 0.5, w = 0.5 })
 end
+
 local function tileLeft()
   setWindowUnit({ w = 0.5 })
 end
+
 local function tileTop()
   setWindowUnit({ h = 0.5 })
 end
+
 local function tileBottom()
   setWindowUnit({ y = 0.5, h = 0.5 })
 end
+
 local function tileTopLeft()
   setWindowUnit({ w = 0.5, h = 0.5 })
 end
+
 local function tileTopRight()
   setWindowUnit({ x = 0.5, w = 0.5, h = 0.5 })
 end
+
 local function tileBottomLeft()
   setWindowUnit({ y = 0.5, w = 0.5, h = 0.5 })
 end
+
 local function tileBottomRight()
   setWindowUnit({ x = 0.5, y = 0.5, w = 0.5, h = 0.5 })
 end
+
 local function fill()
   setWindowUnit({})
+end
+
+local function tileCenter()
+  setWindowUnit({ x = 0.25, y = 0.25, w = 0.5, h = 0.5 })
 end
 
 -- Your hotkey bindings remain unchanged
@@ -74,6 +86,7 @@ local function bindHotkeys()
   hs.hotkey.bind(mods, "3", tileBottomLeft)
   hs.hotkey.bind(mods, "4", tileBottomRight)
   hs.hotkey.bind(mods, "space", fill)
+  hs.hotkey.bind(mods, "0", tileCenter)
 
   hs.hotkey.bind(mods, "pad0", moveWindowToMouseScreen)
 end
