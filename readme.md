@@ -11,7 +11,7 @@
    brew install hammerspoon
    ```
 
-# settings
+# Hammerspoon settings
 - Start at logon ✅
 - Check for updates ✅
 - Send crash data ❌
