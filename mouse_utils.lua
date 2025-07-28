@@ -25,7 +25,7 @@ local function bindHotkeys()
   hs.hotkey.bind(mods, "`", moveMouseToFocusedWindowCenter)
 
   hs.hotkey.bind(mods, "pad1", function()
-    moveMouseToDisplayCenter("EDIIG0216 (2)")
+    moveMouseToDisplayCenter("BenQ GW2480")
   end)
 
   hs.hotkey.bind(mods, "pad2", function()
@@ -37,7 +37,7 @@ local function bindHotkeys()
   end)
 
   hs.hotkey.bind(mods, "pad4", function()
-    moveMouseToDisplayCenter("EDIIG0216 (1)")
+    moveMouseToDisplayCenter("EDIIG0216")
   end)
 
   hs.hotkey.bind(mods, "pad5", function()
