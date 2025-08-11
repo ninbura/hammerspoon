@@ -33,15 +33,15 @@ local function bindHotkeys()
   end)
 
   hs.hotkey.bind(mods, "pad3", function()
-    moveMouseToDisplayCenter("AW2725Q (1)")
+    moveMouseToDisplayCenter("LG TV RVU")
   end)
 
   hs.hotkey.bind(mods, "pad4", function()
-    moveMouseToDisplayCenter("EDIIG0216")
+    moveMouseToDisplayCenter("VA249QG")
   end)
 
   hs.hotkey.bind(mods, "pad5", function()
-    moveMouseToDisplayCenter("AW2725Q (2)")
+    moveMouseToDisplayCenter("AW2725Q")
   end)
 
   hs.hotkey.bind(mods, "pad6", function()
