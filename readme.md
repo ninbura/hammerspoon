@@ -5,7 +5,7 @@
    rm -rf ~/.hammerspoon
    ```
 2. ```zsh
-   git clone https://github.com/ninbura/hammerspoon ~/.hammerspoon
+   git clone git@github.com:ninbura/hammerspoon.git ~/.hammerspoon --config user.name=ninbura --config user.email="58058942+ninbura@users.noreply.github.com"
    ```
 3. ```zsh
    brew install hammerspoon
