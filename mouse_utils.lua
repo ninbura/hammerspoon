@@ -48,11 +48,11 @@ local function bindHotkeys()
     moveMouseToDisplayCenter("AW3425DW")
   end)
 
-  hs.hotkey.bind(mods, "pad7", function()
+  hs.hotkey.bind(mods, "\\", function()
     moveMouseToDisplayCenter("LG ULTRAFINE")
   end)
 
-  hs.hotkey.bind(mods, "pad8", function()
+  hs.hotkey.bind(mods, "pad7", function()
     moveMouseToDisplayCenter("LG ULTRAFINE")
   end)
 end
