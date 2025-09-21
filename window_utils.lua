@@ -86,9 +86,9 @@ local function bindHotkeys()
   hs.hotkey.bind(mods, "3", tileBottomLeft)
   hs.hotkey.bind(mods, "4", tileBottomRight)
   hs.hotkey.bind(mods, "space", fill)
-  hs.hotkey.bind(mods, "0", tileCenter)
+  hs.hotkey.bind(mods, "9", tileCenter)
 
-  hs.hotkey.bind(mods, "pad0", moveWindowToMouseScreen)
+  hs.hotkey.bind(mods, "0", moveWindowToMouseScreen)
 end
 
 bindHotkeys()
