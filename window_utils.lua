@@ -1,5 +1,20 @@
-local function setWindowUnit(unit)
-  local win = hs.window.focusedWindow()
+local M = {}
+
+M.units = {
+  right = { x = 0.5, w = 0.5 },
+  left = { w = 0.5 },
+  top = { h = 0.5 },
+  bottom = { y = 0.5, h = 0.5 },
+  topLeft = { w = 0.5, h = 0.5 },
+  topRight = { x = 0.5, w = 0.5, h = 0.5 },
+  bottomLeft = { y = 0.5, w = 0.5, h = 0.5 },
+  bottomRight = { x = 0.5, y = 0.5, w = 0.5, h = 0.5 },
+  fill = {},
+  center = { x = 0.25, y = 0.25, w = 0.5, h = 0.5 },
+}
+
+local function setWindowUnit(unit, win)
+  win = win or hs.window.focusedWindow()
   if not win then
     hs.alert.show("No focused window found")
     return
@@ -18,6 +33,8 @@ local function setWindowUnit(unit)
   win:setFrame(newFrame)
 end
 
+M.setWindowUnit = setWindowUnit
+
 local function moveWindowToMouseScreen()
   local win = hs.window.focusedWindow()
   if not win then
@@ -33,47 +50,17 @@ local function moveWindowToMouseScreen()
   end
 end
 
-local function tileRight()
-  setWindowUnit({ x = 0.5, w = 0.5 })
-end
+local function tileRight() setWindowUnit(M.units.right) end
+local function tileLeft() setWindowUnit(M.units.left) end
+local function tileTop() setWindowUnit(M.units.top) end
+local function tileBottom() setWindowUnit(M.units.bottom) end
+local function tileTopLeft() setWindowUnit(M.units.topLeft) end
+local function tileTopRight() setWindowUnit(M.units.topRight) end
+local function tileBottomLeft() setWindowUnit(M.units.bottomLeft) end
+local function tileBottomRight() setWindowUnit(M.units.bottomRight) end
+local function fill() setWindowUnit(M.units.fill) end
+local function tileCenter() setWindowUnit(M.units.center) end
 
-local function tileLeft()
-  setWindowUnit({ w = 0.5 })
-end
-
-local function tileTop()
-  setWindowUnit({ h = 0.5 })
-end
-
-local function tileBottom()
-  setWindowUnit({ y = 0.5, h = 0.5 })
-end
-
-local function tileTopLeft()
-  setWindowUnit({ w = 0.5, h = 0.5 })
-end
-
-local function tileTopRight()
-  setWindowUnit({ x = 0.5, w = 0.5, h = 0.5 })
-end
-
-local function tileBottomLeft()
-  setWindowUnit({ y = 0.5, w = 0.5, h = 0.5 })
-end
-
-local function tileBottomRight()
-  setWindowUnit({ x = 0.5, y = 0.5, w = 0.5, h = 0.5 })
-end
-
-local function fill()
-  setWindowUnit({})
-end
-
-local function tileCenter()
-  setWindowUnit({ x = 0.25, y = 0.25, w = 0.5, h = 0.5 })
-end
-
--- Your hotkey bindings remain unchanged
 local function bindHotkeys()
   local mods = { "ctrl", "shift", "cmd" }
 
@@ -92,3 +79,5 @@ local function bindHotkeys()
 end
 
 bindHotkeys()
+
+return M

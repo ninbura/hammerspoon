@@ -1,3 +1,5 @@
+local screens = require("screens")
+
 local function moveMouseToFocusedWindowCenter()
   local win = hs.window.focusedWindow()
   if win then
@@ -20,40 +22,40 @@ local function moveMouseToDisplayCenter(displayName)
 end
 
 local function bindHotkeys()
-  local mods = {"ctrl", "cmd", "shift"}
+  local mods = { "ctrl", "cmd", "shift" }
 
   hs.hotkey.bind(mods, "`", moveMouseToFocusedWindowCenter)
 
   hs.hotkey.bind(mods, "pad1", function()
-    moveMouseToDisplayCenter("BenQ GW2480")
+    moveMouseToDisplayCenter(screens.leftPortrait)
   end)
 
   hs.hotkey.bind(mods, "pad2", function()
-    moveMouseToDisplayCenter("Elgato Prom.")
+    moveMouseToDisplayCenter(screens.prompter)
   end)
 
   hs.hotkey.bind(mods, "pad3", function()
-    moveMouseToDisplayCenter("LG TV RVU")
+    moveMouseToDisplayCenter(screens.tv)
   end)
 
   hs.hotkey.bind(mods, "pad4", function()
-    moveMouseToDisplayCenter("VA249QG")
+    moveMouseToDisplayCenter(screens.rightPortrait)
   end)
 
   hs.hotkey.bind(mods, "pad5", function()
-    moveMouseToDisplayCenter("AW2725Q")
+    moveMouseToDisplayCenter(screens.secondary)
   end)
 
   hs.hotkey.bind(mods, "pad6", function()
-    moveMouseToDisplayCenter("AW3425DW")
+    moveMouseToDisplayCenter(screens.ultrawide)
   end)
 
   hs.hotkey.bind(mods, "\\", function()
-    moveMouseToDisplayCenter("LG ULTRAFINE")
+    moveMouseToDisplayCenter(screens.primary)
   end)
 
   hs.hotkey.bind(mods, "pad7", function()
-    moveMouseToDisplayCenter("LG ULTRAFINE")
+    moveMouseToDisplayCenter(screens.primary)
   end)
 end
 
